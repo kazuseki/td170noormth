@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Todo List</title>
+<style type="text/css">
+.strike {
+    text-decoration: line-through;
+}
+
+.inline {
+    display: inline-block;
+}
+</style>
+</head>
+<body>
+    <h1>Todo List</h1>
+    <div id="todoForm">
+        <!-- (1) -->
+        <form action="/todo/create" method="post">
+            <input type="text">
+            <button>Create Todo</button>
+        </form>
+    </div>
+    <hr>
+    <div id="todoList">
+        <ul>
+            <li>
+                <!-- (2) -->
+                <span>Send a e-mail</span>
+                <form action="/todo/finish" method="post" class="inline">
+                    <button>Finish</button>
+                </form>
+                <form action="/todo/delete" method="post" class="inline">
+                    <button>Delete</button>
+                </form>
+            </li>
+            <li>
+                <span>Have a lunch</span>
+                <form action="/todo/finish" method="post" class="inline">
+                    <button>Finish</button>
+                </form>
+                <form action="/todo/delete" method="post" class="inline">
+                    <button>Delete</button>
+                </form>
+            </li>
+            <li>
+                <span class="strike">Read a book</span><!-- (3) -->
+                <form action="/todo/delete" method="post" class="inline">
+                    <button>Delete</button>
+                </form>
+            </li>
+        </ul>
+    </div>
+</body>
+</html>
