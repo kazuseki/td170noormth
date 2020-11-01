@@ -25,8 +25,9 @@ public class TodoServiceImpl implements TodoService {
     @Inject// (3)
     TodoRepository todoRepository;
 
-    // (4)
-    private Todo findOne(String todoId) {
+    @Override
+    @Transactional(readOnly = true)
+	public Todo findOne(String todoId) {
 
         Todo todo = todoRepository.findOne(todoId);
 
