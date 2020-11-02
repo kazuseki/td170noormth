@@ -9,6 +9,9 @@ public interface TodoRepository {
 	// 1件取得
     Todo findOne(String todoId);
 
+    // タイトルで1件取得
+    Todo findOneByTodoTitle(String todoTitle);
+
     // 全件取得
     Collection<Todo> findAll();
 

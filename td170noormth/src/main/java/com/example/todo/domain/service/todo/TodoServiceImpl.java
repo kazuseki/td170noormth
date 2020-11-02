@@ -41,6 +41,21 @@ public class TodoServiceImpl implements TodoService {
     }
 
     @Override
+    @Transactional(readOnly = true)
+    public Todo findByTodoTitle(String todoTitle) {
+    	Todo todo = todoRepository.findOneByTodoTitle(todoTitle);
+
+    	if (todo == null) {
+            // (5)
+            ResultMessages messages = ResultMessages.error();
+            messages.add("E404", todoTitle);
+            throw new ResourceNotFoundException(messages);
+        }
+
+        return todo;
+    }
+
+    @Override
     @Transactional(readOnly = true) // (7)
     public Collection<Todo> findAll() {
         return todoRepository.findAll();

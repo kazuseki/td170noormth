@@ -10,6 +10,8 @@ public interface TodoService {
 
     Todo findOne(String todoId);
 
+    Todo findByTodoTitle(String todoTitle);
+
     Todo create(Todo todo);
 
     Todo finish(String todoId);

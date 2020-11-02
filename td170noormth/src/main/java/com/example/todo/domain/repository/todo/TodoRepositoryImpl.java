@@ -19,6 +19,21 @@ public class TodoRepositoryImpl implements TodoRepository {
         return TODO_MAP.get(todoId);
     }
 
+    public Todo findOneByTodoTitle(String todoTitle) {
+
+    	Todo todoHit = null;
+
+    	// 最初に見つかった同一のtodotitleを取り出す
+    	for (Todo todo : TODO_MAP.values()) {
+    		if( todoTitle.equals( todo.getTodoTitle() )) {
+    			todoHit = todo;
+    			break;
+    		}
+    	}
+
+    	return todoHit;
+    }
+
     @Override
     public Collection<Todo> findAll() {
         return TODO_MAP.values();
